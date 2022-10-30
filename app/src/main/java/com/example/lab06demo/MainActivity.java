@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Product product = new Product(productBox.getText().toString(), sku);
 
         // TODO: add to database
-        MyDBHandler dbHandler = new MyDBHandler(this);
-        dbHandler.addProduct(product);
+
 
         productBox.setText("");
         skuBox.setText("");
@@ -45,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
     public void lookupProduct (View view) {
 
         // TODO: get from Database
-        MyDBHandler dbHandler = new MyDBHandler(this);
-        Product product = dbHandler.findProduct(productBox.getText().toString());
+
 
 
         if (product != null) {
@@ -61,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void removeProduct (View view) {
 
         // TODO: remove from database
-        MyDBHandler dbHandler = new MyDBHandler(this);
-        boolean result = dbHandler.deleteProduct(productBox.getText().toString());
+
 
         if (result) {
             idView.setText("Record Deleted");
@@ -73,8 +70,5 @@ public class MainActivity extends AppCompatActivity {
             idView.setText("No Match Found");
     }
 
-    public void about(View view) {
-        Intent aboutIntent = new Intent(this, About.class);
-        startActivity(aboutIntent);
-    }
+
 }
